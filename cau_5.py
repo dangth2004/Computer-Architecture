@@ -46,11 +46,22 @@ def read_dht11():
     temperature_bit = data[16:24]
     temperature_point_bit = data[24:32]
     check_bit = data[32:40]
-    # Chuyển đổi từ bit sang giá trị số.
-    humidity = sum(humidity_bit[i] * 2 ** (7 - i) for i in range(8))
-    temperature = sum(temperature_bit[i] * 2 ** (7 - i) for i in range(8))
-    checksum = sum(check_bit[i] * 2 ** (7 - i) for i in range(8))
-    check = humidity + temperature
+
+    humidity = 0
+    humidity_point = 0
+    temperature = 0
+    temperature_point = 0
+    checksum = 0
+
+    # Chuyển đổi từ bit sang số thực
+    for i in range(8):
+        humidity += humidity_bit[i] * 2 ** (7 - i)
+        humidity_point += humidity_point_bit[i] * 2 ** (7 - i)
+        temperature += temperature_bit[i] * 2 ** (7 - i)
+        temperature_point += temperature_point_bit[i] * 2 ** (7 - i)
+        checksum += check_bit[i] * 2 ** (7 - i)
+        check = humidity + humidity_point + temperature + temperature_point
+
     if checksum == check:  # Kiểm tra tính hợp lệ của dữ liệu.
         return temperature, humidity
     else:
@@ -114,7 +125,7 @@ def main():
 
 
 try:
-    main()
-except KeyboardInterrupt:
-    GPIO.cleanup()  # Dọn dẹp GPIO khi dừng chương trình.
-    lcd_clear()  # Xóa màn hình LCD.
+    main()  # Chạy chương trình chính
+except KeyboardInterrupt:  # Xử lý khi người dùng nhấn Ctrl+C
+    lcd_clear()  # Xóa màn hình LCD
+    GPIO.cleanup()  # Giải phóng tài nguyên GPIO.
