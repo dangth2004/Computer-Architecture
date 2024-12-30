@@ -4,6 +4,8 @@ import time  # Thư viện để sử dụng các hàm thời gian
 button_state = 0  # Biến toàn cục lưu trạng thái nút nhấn
 LCD_PINS = {'RS': 23, 'E': 27, 'D4': 18, 'D5': 17, 'D6': 14, 'D7': 3, 'BL': 2}  # Định nghĩa chân GPIO cho LCD
 BT_1 = 21  # Chân GPIO kết nối nút bấm
+
+# Các hằng số cho việc điều khiển LCD
 LCD_WIDTH = 16  # Số ký tự tối đa trên mỗi dòng của LCD
 LCD_CHR = True  # Chế độ ghi ký tự
 LCD_CMD = False  # Chế độ ghi lệnh

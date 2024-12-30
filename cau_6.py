@@ -9,6 +9,8 @@ RELAY_2 = 12  # Chân GPIO điều khiển rơ-le 2
 BUTTON_1 = 21  # Chân GPIO kết nối nút bấm tăng số người
 BUTTON_2 = 26  # Chân GPIO kết nối nút bấm giảm số người
 LCD_PINS = {'RS': 23, 'E': 27, 'D4': 18, 'D5': 17, 'D6': 14, 'D7': 3, 'BL': 2}  # Các chân GPIO của LCD
+
+# Các hằng số cho việc điều khiển LCD
 LCD_WIDTH = 16  # Chiều rộng của màn hình LCD (16 ký tự)
 LCD_CHR = True  # Chế độ gửi dữ liệu tới LCD
 LCD_CMD = False  # Chế độ gửi lệnh tới LCD
@@ -16,6 +18,7 @@ LCD_LINE_1 = 0x80  # Địa chỉ dòng 1 của LCD
 LCD_LINE_2 = 0xC0  # Địa chỉ dòng 2 của LCD
 E_PULSE = 0.005  # Thời gian giữ chân E ở mức cao
 E_DELAY = 0.005  # Thời gian trễ giữa các lần gửi tín hiệu
+
 ROOM_TEMPERATURE_THRESHOLD = 10  # Ngưỡng nhiệt độ phòng
 ROOM_HUMIDITY_THRESHOLD = 10  # Ngưỡng độ ẩm phòng
 

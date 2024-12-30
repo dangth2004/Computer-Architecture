@@ -5,6 +5,8 @@ import time  # Thư viện để sử dụng các hàm thời gian
 LCD_PINS = {'RS': 23, 'E': 27, 'D4': 18, 'D5': 17, 'D6': 14, 'D7': 3, 'BL': 2}
 BTS = {"BT_1": 21, "BT_2": 26, "BT_3": 20, "BT_4": 19}
 LED = 13  # Định nghĩa chân GPIO điều khiển đèn LED
+
+# Các hằng số cho việc điều khiển LCD
 LCD_WIDTH = 16  # Chiều dài dòng hiển thị của LCD
 LCD_CHR = True  # Chế độ ghi ký tự
 LCD_CMD = False  # Chế độ ghi lệnh
